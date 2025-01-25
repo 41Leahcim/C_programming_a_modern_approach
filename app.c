@@ -1,24 +1,33 @@
-/**
- * Outputs:
- * Parkinson's Law:
- * Work expands so as to fill the time
- * available for its completion.
-*/
-
-// Directive
 #include <stdio.h>
+#include <stdbool.h>
 
-int main(void)
-{
- // Statement
- printf("Parkinson's Law:\nWork expands so as to ");
+void flush_stdin(){
+    int c;
+    do{
+        c = getchar();
+    }while(c != '\n' && c != EOF);
+}
 
- // Statement
- printf("fill the time\n");
+unsigned int read_box_dimension(const char *name){
+    unsigned int value = 0;
+    while(true){
+        printf("Enter %s of box: ", name);
+        if(scanf("%u", &value) == 0){
+            puts("Invalid value");
+            flush_stdin();
+        }else{
+            return value;
+        }
+    }
+}
 
- // Statement
- printf("available for its completion.\n");
+int main(){
+    const unsigned int height = read_box_dimension("height");
+    const unsigned int length = read_box_dimension("length");
+    const unsigned int width = read_box_dimension("width");
+    
+    const unsigned int volume = height * length * width;
 
- // statement
- return 0;
+    printf("Volume (cubic inches): %u\n", volume);
+    printf("Dimensional weight (pounds): %u\n", (volume + 165) / 166);
 }
