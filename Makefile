@@ -1,6 +1,6 @@
 build/app: app.c
 	mkdir build -p
-	gcc app.c -Os -Wall -Wextra -Wpedantic -Werror -o build/app
+	gcc app.c -Os -Wall -Wextra -Wpedantic -o build/app
 
 build: build/app
 

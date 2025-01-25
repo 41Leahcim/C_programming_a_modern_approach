@@ -1,33 +1,21 @@
+// The values tend to be 0, but may be different if the memory is initialized in an other
+// application.
+
 #include <stdio.h>
-#include <stdbool.h>
-
-void flush_stdin(){
-    int c;
-    do{
-        c = getchar();
-    }while(c != '\n' && c != EOF);
-}
-
-unsigned int read_box_dimension(const char *name){
-    unsigned int value = 0;
-    while(true){
-        printf("Enter %s of box: ", name);
-        if(scanf("%u", &value) == 0){
-            puts("Invalid value");
-            flush_stdin();
-        }else{
-            return value;
-        }
-    }
-}
+#include <stdint.h>
 
 int main(){
-    const unsigned int height = read_box_dimension("height");
-    const unsigned int length = read_box_dimension("length");
-    const unsigned int width = read_box_dimension("width");
-    
-    const unsigned int volume = height * length * width;
+    const uint8_t byte;
+    const uint16_t word;
+    const uint32_t double_word;
+    const uint64_t quad_word;
+    const float single_precision;
+    const double double_precision;
 
-    printf("Volume (cubic inches): %u\n", volume);
-    printf("Dimensional weight (pounds): %u\n", (volume + 165) / 166);
+    printf("Byte: %u\n", byte);
+    printf("Byte: %u\n", word);
+    printf("Byte: %u\n", double_word);
+    printf("Byte: %u\n", quad_word);
+    printf("Byte: %f\n", single_precision);
+    printf("Byte: %lf\n", double_precision);
 }
