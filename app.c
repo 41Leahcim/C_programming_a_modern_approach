@@ -1,14 +1,10 @@
+#include <stdio.h>
+
 int main(){
-    // invalid
-    //int 100_bottles;
-    
-    // valid
-    int _100_bootles, one__hundred__bottles, bottles_by_the_hunred;
+    int answer, q = 1, p = 3;
 
-    const char *current__balance = "How many dashes does this variable name contain?";
+    // Tokens: Assign(answer, Div(Sub(Mul(3, q), Mul(p, p)), 3))
+    answer = (3 * q - p * p) / 3;
 
-    // Keywords: for, while
-    // special function: main
-    // Standard library function: printf
-    // Incorrectly typed keyword, may be declared: If
+    printf("%d\n", answer);
 }
